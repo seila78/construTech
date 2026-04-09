@@ -17,15 +17,15 @@
         </div>
 
         <div class="formulario">
-                <h2>entre no sistema!</h2>
-                <p>E-mail:</p>
-                <input type="email" placeholder="E-mail"> 
-                <br>
-                <p>Senha:</p>
-                <input type="password" placeholder="Senha"> 
-                <br>
-                <button type="submit" class="btn-formulario">enviar</button>
-            </div>
+            <h2>entre no sistema!</h2>
+            <p>E-mail:</p>
+            <input type="email" placeholder="E-mail"> 
+            <br>
+            <p>Senha:</p>
+            <input type="password" placeholder="Senha"> 
+            <br>
+            <button type="submit" class="btn-formulario">enviar</button>
+        </div>
     </main>
 </body>
 </html>
