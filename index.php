@@ -7,10 +7,8 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-    <header>
-        <nav>  
-            <img src="./imagens/logo.png" alt="Logo da ConstruTech" class="logo">
-        </nav>
-    </header>
+    <?php
+        require 'partials/header.php';
+    ?>
 </body>
 </html>
