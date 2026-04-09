@@ -6,6 +6,10 @@
     <title>ConstruTech</title>
 </head>
 <body>
-    
+    <header>
+        <nav>  
+            <img src="assets/logo.png" alt="Logo da ConstruTech" class="logo">
+        </nav>
+    </header>
 </body>
 </html>
