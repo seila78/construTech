@@ -1,0 +1,81 @@
+ConstruTech ->
+
+* Login
+
+* Home 
+ - Estoque
+   * Visualização de Inventário: Uma tabela organizada que mostre todos os itens, suas categorias e o cálculo do valor total investido em cada produto.
+   * Movimentação de Itens: Funcionalidade para adicionar ou remover unidades de um item que já está na lista.
+   * Painel de Cadastro: Formulário para inserção de Nome do Item, Categoria, Quantidade e Preço Unitário.
+   * Resumo Financeiro: Exibir no rodapé da página o valor total de todos os produtos somados que estão no estoque 
+
+ - Financeiro
+   * Mostra o histórico de compras e vendas
+   * Mostra pedidos pendentes
+   * Solicitar produtos para fornecedor
+
+
+ -> Produtos
+
+Cimento CP II (50kg) 
+Bruto 
+Essencial para fundações, contrapisos e rebocos. Vendido por saco.
+
+Areia Média 
+Bruto 
+Usada na mistura de argamassa e concreto. Vendida por metro cúbico ($m^3$) ou saco.
+
+Tijolo Baiano (8 furos)
+Bruto
+Utilizado para o levantamento de paredes. Vendido por unidade ou milheiro.
+
+Pedra Brita 1 
+Bruto
+Utilizada para fazer concreto para vigas e colunas.Vendida por metro cúbico.
+
+Argamassa ACIII (20kg)
+Bruto
+Usada para assentamento de porcelanatos e pisos em áreas externas.
+
+
+Martelo de Unha 27mm
+Ferramentas
+Ferramenta manual básica para carpintaria e uso geral.
+
+Furadeira de Impacto 700W
+Ferramentas
+Ferramenta elétrica para perfurar alvenaria, madeira e metal.
+
+Trena de 5 metros
+Ferramentas
+Instrumento de medição essencial para qualquer obra.
+
+Alicate Universal 8"
+Ferramentas
+Utilizado para cortar, apertar e dobrar cabos e arames.
+
+Carrinho de Mão (65L)
+Ferramentas
+Usado para transportar entulho, areia, cimento e ferramentas na obra.
+
+
+
+Porcelanato Polido 60x60cm
+Acabamento
+Revestimento de alto padrão para pisos internos. Vendido por metro quadrado ($m^2$).
+
+Torneira de Bancada (Cozinha)
+Acabamento
+Metal sanitário para pias.
+
+Tinta Acrílica Branca (18L)
+Acabamento
+Tinta para pintura de paredes internas e externas. Vendida por lata.
+
+Vaso Sanitário com Caixa
+Acabamento
+Vaso sanitário de porcelanato para banheiros.
+
+Lâmpada LED 9W
+Acabamento
+Item de iluminação final para os ambientes.

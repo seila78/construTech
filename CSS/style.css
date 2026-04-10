@@ -1,0 +1,131 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #004aad;
+}
+
+header {
+    background-color: #fc6b1b;
+    padding: 20px 0;
+    justify-content: center;
+    display: flex;
+}
+
+header img {
+    height: 50px;
+    width: auto;
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+}
+
+.container {
+    max-width: 1500px;
+    margin: 10px auto;
+    padding: 0 10px;
+    columns: 2;
+    margin-top: 50px;
+}
+
+.login-texto {
+    text-align: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    margin-right: 100px;
+}
+
+.login-texto h1 {
+    font-size: 70px;
+    margin-bottom: 15px;
+    color: #ffffff;
+    border-bottom: #fc6b1b 2px solid;
+    white-space: nowrap;
+}
+
+.login-texto img {
+    width: 400px;
+    height: auto;
+}
+
+.formulario{
+    text-align: center;
+    background: #fc6b1b;
+    padding: 45px 50px;
+    border-radius: 20px;
+    width: 600px;
+    height: 600px;
+    margin: auto;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
+    margin-left: 150px;
+}
+
+.formulario h2{
+    color: #004aad;
+    margin-bottom: 50px;
+    font-size: 65px;
+    margin-left: -10px;
+    white-space: nowrap;
+}
+
+.formulario p{
+    color: #ffffff;
+    text-align: left;
+    font-size: 20px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    margin-top: 25px;
+}
+
+input[type="email"], 
+input[type="password"], 
+input[type="text"], 
+input[type="number"] {
+    width: 500px;
+    height: 60px;
+    padding: 12px 20px;
+    margin-bottom: 18px;
+    border-radius: 45px;
+    border: 2px solid #ECEFF1;
+    background: #ffffff;
+    font-size: 1em;
+    transition: all 0.3s ease;
+    outline: none;
+    color: #333;
+}
+
+.btn-formulario {
+    display: inline-block;
+    background-color: #ffffff;
+    border: 5px solid #000000;
+    color: #141414;
+    padding: 14px 30px;
+    border-radius: 25px;
+    text-decoration: none;
+    margin: 8px 5px;
+    transition: all 0.3s ease; 
+    border: none;
+    cursor: pointer;
+    font-size: 1.05em;
+    width: 200px;
+    height: 60px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 40px;
+}
+
+.assunto {
+    height: 150px;
+}
+
+.btn-formulario:hover {
+    transform: translateY(-2px);
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.274);
+    transform: scale(10px);
+}
