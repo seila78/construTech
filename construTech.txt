@@ -1,5 +1,7 @@
 ConstruTech ->
 
+cor da fonte -> #073365
+
 * Login
 
 * Home 

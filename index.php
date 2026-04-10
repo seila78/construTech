@@ -16,13 +16,13 @@
             <img src="./imagens/Design sem nome.png" alt="Login">
         </div>
 
-        <div class="formulario">
+        <div class="formulario" method='POST'>
             <h2>entre no sistema!</h2>
             <p>E-mail:</p>
-            <input type="email" placeholder="E-mail"> 
+            <input type="email" placeholder="E-mail" name='email'> 
             <br>
             <p>Senha:</p>
-            <input type="password" placeholder="Senha"> 
+            <input type="password" placeholder="Senha" name='senha'> 
             <br>
             <button type="submit" class="btn-formulario">enviar</button>
         </div>
