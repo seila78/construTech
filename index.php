@@ -17,10 +17,10 @@
         </div>
 
         <div class="formulario">
-            <form action='init.php' method='POST'>
+            <form action='php/data.php' method='POST'>
             <h2>ENTRE NO SISTEMA!</h2>
-            <p>E-mail:</p>
-            <input type="email" placeholder="E-mail" name='email'> 
+            <p>Nome de usuário:</p>
+            <input type="text" placeholder="E-mail" name='user'> 
             <br>
             <p>Senha:</p>
             <input type="password" placeholder="Senha" name='senha'> 

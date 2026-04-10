@@ -2,6 +2,7 @@
 session_start();
 //login
 $_SESSION['usuarios']=
+
 $usuarios =[
     [
     'id'    => 1,
