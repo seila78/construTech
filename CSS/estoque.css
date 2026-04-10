@@ -31,89 +31,102 @@ nav {
     gap: 20px;
 }
 
-.bem-vindo {
-    text-align: center;
-    margin-top: 50px;
-    margin-bottom: 10px;
-    color: #ffffff;
-}
-
-.titulo {
-    text-align: center;
-    margin-bottom: 30px;
-    font-size: 70px;
-    color: #ffffff;
-}
-
-.container {
-    max-width: 1500px;
-    margin: 10px auto;
-    padding: 0 10px;
-    columns: 2;
-    margin-top: 50px;
-}
-
-.login-texto {
-    text-align: center;
+.filtro {
+    display: flex;
+    gap: 15px;
     justify-content: center;
-    margin-bottom: 20px;
-    margin-right: 100px;
+    margin-top: 30px;
 }
 
-.login-texto h1 {
-    font-size: 70px;
-    margin-bottom: 15px;
+.filtro li {
+    list-style: none;
+    padding: 10px 20px;
+    background-color: #fc6b1b;
     color: #ffffff;
-    border-bottom: #fc6b1b 2px solid;
-    white-space: nowrap;
-}
-
-.login-texto img {
-    width: 400px;
-    height: auto;
-}
-
-.card {
-    text-align: center;
-    background: #fc6b1b;
-    padding: 45px 50px;
-    border-radius: 20px;
-    width: 500px;
-    height: 500px;
-    margin-right: 100px;
-    margin-left: 120px;
-    border: 3px solid #ff985c; 
-    box-shadow: 
-        0 15px 50px rgba(0, 0, 0, 0.4),
-        inset 4px 4px 15px rgba(255, 255, 255, 0.3),
-        inset -4px -4px 15px rgba(0, 0, 0, 0.15);
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
     cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.card img {
-    width: 250px;
-    height: auto;
-    margin-bottom: 50px;
+.filtro li:hover {
+    background-color: #bd4606;
+    transform: translateY(-3px);
+}  
+
+.container-tabela {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 0 20px;
 }
 
-.card h2{
-    color: #003985;
-    margin-bottom: 50px;
-    font-size: 75px;
-    margin-left: -10px;
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #ffffff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
+}
+
+thead {
+    background-color: #fc6b1b;
+}
+
+th {
+    color: #ffffff;
+    padding: 20px 15px;
+    text-align: left;
+    font-size: 18px;
     white-space: nowrap;
 }
 
-.card:hover {
-    background: #ff7729;
-    border-color: #fc6b1b;
-    box-shadow: 
-        0 20px 60px rgba(0, 0, 0, 0.5),
-        inset 4px 4px 15px rgba(255, 255, 255, 0.3),
-        inset -4px -4px 15px rgba(0, 0, 0, 0.15);
-    transform: translateY(-5px);
-    transform: scale(1.05);
-    transition: all 0.3s ease;
+td {
+    padding: 15px;
+    color: #003985;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+tbody tr {
+    transition: background-color 0.3s ease;
+}
+
+tbody tr:hover {
+    background-color: #f5f8ff;
+}
+
+.img-produto {
+    width: 80px;
+    height: 80px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    padding: 5px;
+}
+
+.descricao {
+    font-size: 14px;
+    max-width: 300px;
+    color: #000000;
+}
+
+.preco {
+    font-weight: bold;
+    font-size: 18px;
+    color: #004aad;
+    white-space: nowrap;
+}
+
+.categoria {
+    background-color: #004aad;
+    color: #ffffff;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
 .button {
