@@ -1,0 +1,175 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #004aad; 
+    background-image: url(https://wallpapers.com/images/hd/blueprint-background-1680-x-1050-7xo1pfiqdgii4xoi.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-blend-mode: multiply; 
+}
+
+header {
+    background-color: #fc6b1b;
+    padding: 20px 0;
+    justify-content: center;
+    display: flex;
+}
+
+header img {
+    height: 50px;
+    width: auto;
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+}
+
+.bem-vindo {
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.titulo {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 70px;
+    color: #ffffff;
+}
+
+.container {
+    max-width: 1500px;
+    margin: 10px auto;
+    padding: 0 10px;
+    columns: 2;
+    margin-top: 50px;
+}
+
+.login-texto {
+    text-align: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    margin-right: 100px;
+}
+
+.login-texto h1 {
+    font-size: 70px;
+    margin-bottom: 15px;
+    color: #ffffff;
+    border-bottom: #fc6b1b 2px solid;
+    white-space: nowrap;
+}
+
+.login-texto img {
+    width: 400px;
+    height: auto;
+}
+
+.card {
+    text-align: center;
+    background: #fc6b1b;
+    padding: 45px 50px;
+    border-radius: 20px;
+    width: 500px;
+    height: 500px;
+    margin-right: 100px;
+    margin-left: 120px;
+    border: 3px solid #ff985c; 
+    box-shadow: 
+        0 15px 50px rgba(0, 0, 0, 0.4),
+        inset 4px 4px 15px rgba(255, 255, 255, 0.3),
+        inset -4px -4px 15px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+}
+
+.card img {
+    width: 250px;
+    height: auto;
+    margin-bottom: 50px;
+}
+
+.card h2{
+    color: #003985;
+    margin-bottom: 50px;
+    font-size: 75px;
+    margin-left: -10px;
+    white-space: nowrap;
+}
+
+.card:hover {
+    background: #ff7729;
+    border-color: #fc6b1b;
+    box-shadow: 
+        0 20px 60px rgba(0, 0, 0, 0.5),
+        inset 4px 4px 15px rgba(255, 255, 255, 0.3),
+        inset -4px -4px 15px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+}
+
+.button {
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 50%;
+    background-color: #fc6b1b;
+    border: 2px solid #0c0c0c;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    position: relative;
+    transition: all 0.5s;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 1000;
+}
+
+.button::after {
+    content: "adicionar produto";
+    position: absolute;
+    width: auto;
+    background-color: white;
+    color: #003985;
+    font-size: 1em;
+    box-sizing: border-box;
+    padding: 10px 15px;
+    border-radius: 25px;
+    top: -60px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.5s;
+    transform: scale(0);
+}
+
+.svg {
+    transition: all 0.5s;
+}
+
+.button:hover {
+    transform: translateY(-3px);
+    background-color: #bd4606;
+}
+
+.button:hover .svg {
+    fill: white;
+    transform: scale(1.2);
+}
+
+.button:hover::after {
+    transform: scale(1);
+}
+
+.button:active {
+    transform: translateY(2px);
+}
