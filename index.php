@@ -16,7 +16,7 @@
             <img src="./imagens/Design sem nome.png" alt="Login">
         </div>
 
-        <div class="formulario" method='POST'>
+        <div class="formulario" action='init.php' method='POST'>
             <h2>entre no sistema!</h2>
             <p>E-mail:</p>
             <input type="email" placeholder="E-mail" name='email'> 
