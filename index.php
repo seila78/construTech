@@ -12,19 +12,21 @@
     ?>
     <main class="container">
         <div class="login-texto">
-            <h1>Entre no sistema:</h1>
+            <h1>Entre no sistema:</h1><!--bom dia, boa tarde, boa noite-->
             <img src="./imagens/Design sem nome.png" alt="Login">
         </div>
 
-        <div class="formulario" action='init.php' method='POST'>
-            <h2>entre no sistema!</h2>
+        <div class="formulario">
+            <form action='init.php' method='POST'>
+            <h2>ENTRE NO SISTEMA!</h2>
             <p>E-mail:</p>
             <input type="email" placeholder="E-mail" name='email'> 
             <br>
             <p>Senha:</p>
             <input type="password" placeholder="Senha" name='senha'> 
             <br>
-            <button type="submit" class="btn-formulario">enviar</button>
+            <button type="submit" class="btn-formulario">ENVIAR</button>
+            </form>
         </div>
     </main>
 </body>
