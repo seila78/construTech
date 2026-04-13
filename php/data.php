@@ -23,7 +23,7 @@ foreach ($usuarios as $user) {
     }
 }
 
-if ($acesso) {
+if ($acesso === true) {
     header("Location: ../paginas/home.php");
     exit;
 } else {
@@ -161,4 +161,7 @@ $produtos =[
 if (!isset($_SESSION['produtos'])) {
     $_SESSION['produtos'] = $produtos
     ;
+
+foreach
+
 }
