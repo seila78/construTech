@@ -113,9 +113,22 @@
                 </tr>
             </tbody>
         </table>
+        
+        <table class="total-investido">
+            <thead>
+                <tr>
+                    <th colspan="8" class="total-texto">Total Investido:</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td colspan="8" class="total">R$ 152,90</td>
+                </tr>
+            </tbody>
+        </table>
 
-        <form class="form-adicionar">
-            <h2 for="produto">Adicionar Produto:</h2>
+        <form class="form-adicionar" id="adicionar">
+            <h2>Adicionar Produto:</h2>
             <input type="text" id="produto" name="produto" placeholder="Nome do produto">
             <select id="categoria" name="categoria">
                 <option value="">Selecione uma categoria</option>
@@ -130,17 +143,20 @@
         </form>
     </div>
 
-    <button class="button">
-    <svg 
-        class="svg" 
-        xmlns="http://www.w3.org/2000/svg" 
-        height="25px" 
-        viewBox="0 -960 960 960" 
-        width="25px" 
-        fill="#000000"
-    >
-        <path d="M480-160L160-480l56-56 224 224v-488h80v488l224-224 56 56-320 320Z"></path>
-    </svg>
-</button>
+    <a href="#adicionar">
+        <button class="button">
+            <svg 
+                class="svg" 
+                xmlns="http://www.w3.org/2000/svg" 
+                height="25px" 
+                viewBox="0 -960 960 960" 
+                width="25px" 
+                fill="#000000"
+            >
+                <path d="M480-160L160-480l56-56 224 224v-488h80v488l224-224 56 56-320 320Z"></path>
+            </svg>
+        </button>
+    </a>
+
 </body>
 </html>
