@@ -28,6 +28,8 @@
                     <th>Categoria</th>
                     <th>Descrição</th>
                     <th>Preço</th>
+                    <th>quantidade</th>
+                    <th>investido</th>
                 </tr>
             </thead>
             <tbody>
@@ -40,6 +42,63 @@
                     <td><span class="categoria">Bruto</span></td>
                     <td class="descricao">Essencial para fundações, contrapisos e rebocos. Oferece alta durabilidade e resistência para a estrutura da sua obra. Vendido por saco.</td>
                     <td class="preco">R$ 32,90</td>
+                    <td class="preco">R$ 32,90</td>
+                    <td class="preco">R$ 32,90</td>
+                </tr>
+
+                <tr>
+                    <td>2</td>
+                    <td>
+                        <img class="img-produto" src="https://cdn.awsli.com.br/2500x2500/2674/2674061/produto/343205423/23cddc63643264a219aa251e10b1a191-7l9s2ngs5t.jpg" alt="Areia Média">
+                    </td>
+                    <td><strong>Areia Média</strong></td>
+                    <td><span class="categoria">Bruto</span></td>
+                    <td class="descricao">Usada na mistura de argamassa e concreto. Possui granulometria ideal para um acabamento perfeito e estruturado. Vendida por metro cúbico (m³) ou saco.</td>
+                    <td class="preco">R$ 120,00</td>
+                </tr>
+
+                <tr>
+                    <td>2</td>
+                    <td>
+                        <img class="img-produto" src="https://cdn.awsli.com.br/2500x2500/2674/2674061/produto/343205423/23cddc63643264a219aa251e10b1a191-7l9s2ngs5t.jpg" alt="Areia Média">
+                    </td>
+                    <td><strong>Areia Média</strong></td>
+                    <td><span class="categoria">Bruto</span></td>
+                    <td class="descricao">Usada na mistura de argamassa e concreto. Possui granulometria ideal para um acabamento perfeito e estruturado. Vendida por metro cúbico (m³) ou saco.</td>
+                    <td class="preco">R$ 120,00</td>
+                </tr>
+
+                <tr>
+                    <td>2</td>
+                    <td>
+                        <img class="img-produto" src="https://cdn.awsli.com.br/2500x2500/2674/2674061/produto/343205423/23cddc63643264a219aa251e10b1a191-7l9s2ngs5t.jpg" alt="Areia Média">
+                    </td>
+                    <td><strong>Areia Média</strong></td>
+                    <td><span class="categoria">Bruto</span></td>
+                    <td class="descricao">Usada na mistura de argamassa e concreto. Possui granulometria ideal para um acabamento perfeito e estruturado. Vendida por metro cúbico (m³) ou saco.</td>
+                    <td class="preco">R$ 120,00</td>
+                </tr>
+
+                <tr>
+                    <td>2</td>
+                    <td>
+                        <img class="img-produto" src="https://cdn.awsli.com.br/2500x2500/2674/2674061/produto/343205423/23cddc63643264a219aa251e10b1a191-7l9s2ngs5t.jpg" alt="Areia Média">
+                    </td>
+                    <td><strong>Areia Média</strong></td>
+                    <td><span class="categoria">Bruto</span></td>
+                    <td class="descricao">Usada na mistura de argamassa e concreto. Possui granulometria ideal para um acabamento perfeito e estruturado. Vendida por metro cúbico (m³) ou saco.</td>
+                    <td class="preco">R$ 120,00</td>
+                </tr>
+
+                <tr>
+                    <td>2</td>
+                    <td>
+                        <img class="img-produto" src="https://cdn.awsli.com.br/2500x2500/2674/2674061/produto/343205423/23cddc63643264a219aa251e10b1a191-7l9s2ngs5t.jpg" alt="Areia Média">
+                    </td>
+                    <td><strong>Areia Média</strong></td>
+                    <td><span class="categoria">Bruto</span></td>
+                    <td class="descricao">Usada na mistura de argamassa e concreto. Possui granulometria ideal para um acabamento perfeito e estruturado. Vendida por metro cúbico (m³) ou saco.</td>
+                    <td class="preco">R$ 120,00</td>
                 </tr>
 
                 <tr>
@@ -54,6 +113,21 @@
                 </tr>
             </tbody>
         </table>
+
+        <form class="form-adicionar">
+            <h2 for="produto">Adicionar Produto:</h2>
+            <input type="text" id="produto" name="produto" placeholder="Nome do produto">
+            <select id="categoria" name="categoria">
+                <option value="">Selecione uma categoria</option>
+                <option value="Bruto">Bruto</option>
+                <option value="Acabamento">Acabamento</option>
+                <option value="Ferramentas">Ferramentas</option>
+            </select>
+            <input type="text" id="descricao" name="descricao" placeholder="Descrição">
+            <input type="number" id="preco" name="preco" placeholder="R$ 0,00" step="0.01">
+            <input type="number" id="quantidade" name="quantidade" placeholder="Quantidade">
+            <button type="submit" class="adicionar">Adicionar</button>
+        </form>
     </div>
 
     <button class="button">
