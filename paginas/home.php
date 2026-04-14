@@ -13,10 +13,10 @@
     <h1 class="bem-vindo">Bem-vindo ao ConstruTech!</h1>
     <h1 class="titulo">Qual área deseja acessar?</h1>
     <main class="container">
-        <div class="card">
+        <a href="./estoque.php"><div class="card">
             <img src="https://cdn-icons-png.flaticon.com/512/3176/3176088.png" alt="estoque">
             <h2>Estoque</h2>
-        </div>
+        </div></a>
 
         <div class="card">
             <img src="https://cdn-icons-png.flaticon.com/512/1924/1924289.png" alt="financeiro">
