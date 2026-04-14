@@ -12,7 +12,9 @@
     ?>
     <main class="container">
         <div class="login-texto">
-            <h1>Entre no sistema:</h1><!--bom dia, boa tarde, boa noite-->
+                <?php
+                include 'php/saudacao.php';
+                ?>
             <img src="./imagens/Design sem nome.png" alt="Login">
         </div>
 
@@ -20,13 +22,20 @@
             <form action='sdata.php' method='POST'>
             <h2>ENTRE NO SISTEMA!</h2>
             <p>Nome de usuário:</p>
-            <input type="text" placeholder="E-mail" name='user'> 
+            <input type="text" placeholder="Digite seu usuário" name='user' required>
             <br>
             <p>Senha:</p>
-            <input type="password" placeholder="Senha" name='senha'> 
+            <input type="password" placeholder="Digite sua senha" name='senha' required> 
             <br>
             <button type="submit" class="btn-formulario">ENVIAR</button>
             </form>
+            <?php
+            session_start();
+            if (isset($_SESSION['erro'])) {
+                echo "<script>alert('{$_SESSION['erro']}');</script>";
+                unset($_SESSION['erro']);
+            }
+            ?>
         </div>
     </main>
 </body>
