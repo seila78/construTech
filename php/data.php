@@ -36,9 +36,9 @@ if ($acesso === true) {
 //estoque
 
 $categorias = [
-    'bruto'       = 'Bruto'
-    'ferramentas' = 'Ferramentas'
-    'acabamento'  = 'Acabamento'
+    'bruto'       => 'Bruto',
+    'ferramentas' => 'Ferramentas',
+    'acabamento'  => 'Acabamento'
 ];
 
 $_SESSION['produtos']= 
