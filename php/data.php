@@ -34,8 +34,15 @@ if ($acesso === true) {
 
 
 //estoque
+
+$categorias = [
+    'bruto'       = 'Bruto'
+    'ferramentas' = 'Ferramentas'
+    'acabamento'  = 'Acabamento'
+];
+
 $_SESSION['produtos']= 
-$produtos =[
+$produtos = [
 [
     'id'        => 1,
     'nome'      => 'Cimento CP II (50kg)',
@@ -162,6 +169,5 @@ if (!isset($_SESSION['produtos'])) {
     $_SESSION['produtos'] = $produtos
     ;
 
-foreach
 
 }
