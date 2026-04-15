@@ -19,7 +19,7 @@
         </div>
 
         <div class="formulario">
-            <form action='sdata.php' method='POST'>
+            <form action='./php/data.php' method='POST'>
             <h2>ENTRE NO SISTEMA!</h2>
             <p>Nome de usuário:</p>
             <input type="text" placeholder="E-mail" name='user'> 

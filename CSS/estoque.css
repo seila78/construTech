@@ -187,6 +187,45 @@ tbody tr:hover {
     transform: translateY(2px);
 }
 
+.acao {
+    position: relative; /* Necessário para posicionar a linha */
+    padding-left: 15px; /* Espaço para a linha não atropelar o texto */
+}
+
+.acao::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 10%;      /* Distância do topo (ajuste como quiser) */
+    height: 80%;   /* Aqui você define a altura da linha! */
+    width: 1px;    /* Espessura da linha */
+    background-color: #ccc; /* A cor que você já estava usando */
+}
+
+.btn-editar {
+    padding: 10px 13px;
+    border-radius: 50%;
+    border: none;
+    color: #ffffff;
+    background-color: #004aad;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-excluir {
+    padding: 10px 13px;
+    border-radius: 50%;
+    border: none;
+    background-color: #ff0000;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
 .total-investido {
     margin-top: 50px;
 }
