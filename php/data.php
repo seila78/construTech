@@ -1,6 +1,6 @@
 <?php
 session_start();
-//login
+//---------------------------------------LOGIN✅--------------------------------------------
 $_SESSION['usuarios']=
 
 $usuarios =[
@@ -33,7 +33,7 @@ if ($acesso === true) {
 }
 
 
-//estoque
+//---------------------------------------ESTOQUE-------------------------------------------- 
 
 $categorias = [
     'bruto'       = 'Bruto'
@@ -165,9 +165,50 @@ $produtos = [
 ],
 ];
 
-if (!isset($_SESSION['produtos'])) {
-    $_SESSION['produtos'] = $produtos
-    ;
-
-
+foreach($produtos as $produto){
+    echo "";
 }
+
+$qntd_produtos = 0;
+
+//aumenta o id automáticamente
+if (empty($id)){
+    end($qntd_produtos += 1);
+}
+
+if (!isset($_SESSION['produtos'])) {
+    $_SESSION['produtos'] = $produtos;
+}
+
+//---------------------------------------FINANCEIRO--------------------------------------------
+
+$tipos = [
+    'compra' = 'Compra',
+    'venda'  = 'venda'
+;]//fazer filtro dps
+
+$_SESSION['extrato'] = 
+    $extrato = [
+        [
+            'id'    =>
+            'valor' =>
+            'tipo'  =>
+            'data'  =>
+        ],
+    ;]
+if (empty($extrato['tipo'] < 0)){
+    $extrato['tipo'] = 'venda'
+;}
+elseif(empty($extrato['tipo'] )){
+    $extrato['tipo'] = 'compra'
+;}
+
+
+$subtotal = 0
+
+foreach($extrato as $transacao){
+ $subtotal += $transacao['valor']
+};
+
+//solicitar produtos ao fornecedor
+$comprar
