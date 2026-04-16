@@ -9,7 +9,7 @@ $usuarios =[
     'nome'  => 'admin',
     'senha' => '123'
     ]
-];
+;];
 
 $nome = $_POST['user'] ?? '';
 $senha = $_POST['senha'] ?? '';
@@ -165,20 +165,67 @@ $produtos = [
 ],
 ];
 
+//cria a tabela de acordo com itens em estoque
 foreach($produtos as $produto){
-    echo "";
+    echo '
+                <tr>
+                    <td>'.$produto['id'].'</td>
+                    <td>
+                        <img class="img-produto" src="'.$produto['imagem'].'" alt=".$produto['nome'].">
+                    </td>
+                    <td><strong>'.$produto['nome'].'</strong></td>
+                    <td><span class="categoria">'.$produto['categoria'].'</span></td>
+                    <td class="descricao">'.$produto['descricao'].'</td>
+                    <td class="preco">R$'.$produto['preco'].'</td>
+                    <td class="acao"><button class="btn-editar">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z" />
+                            <line x1="3.5" y1="16.5" x2="7.5" y2="20.5" />
+                            <line x1="14" y1="6" x2="18" y2="10" />
+                        </svg>
+                    </button></td>
+                    <td><button class="btn-excluir">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="3 6 5 6 21 6" />
+                            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+                            <line x1="10" y1="11" x2="10" y2="17" />
+                            <line x1="14" y1="11" x2="14" y2="17" />
+                        </svg>
+                    </button></td>
+                </tr>
+            ';
 }
-
-$qntd_produtos = 0;
 
 //aumenta o id automáticamente
+$qntd_produtos = 0;
+
 if (empty($id)){
-    end($qntd_produtos += 1);
+    max($qntd_produtos += 1)
+;
 }
 
+//calcula os valor total do estoque
+$totalprodutos = 0
+
+foreach($produtos as $produto){
+    $totalprodutos += $produto['preco']
+;
+}
+
+
+
+//cria a sessão de produtos caso ela ainda não exista
 if (!isset($_SESSION['produtos'])) {
     $_SESSION['produtos'] = $produtos;
 }
+
+//adicionar produtos
+
+$produtos[] = $_POST['nome','categoria','descricao','imagem','preco'];
+
+//remover produtos
+
+unset()
 
 //---------------------------------------FINANCEIRO--------------------------------------------
 
@@ -187,14 +234,17 @@ $tipos = [
     'venda'  = 'venda'
 ;]//fazer filtro dps
 
+$_POST[''];
+
+
 $_SESSION['extrato'] = 
     $extrato = [
         [
-            'id'    =>
-            'valor' =>
-            'tipo'  =>
+            'id'    =>,
+            'valor' =>,
+            'tipo'  =>,
             'data'  =>
-        ],
+        ]
     ;]
 if (empty($extrato['tipo'] < 0)){
     $extrato['tipo'] = 'venda'
@@ -211,4 +261,5 @@ foreach($extrato as $transacao){
 };
 
 //solicitar produtos ao fornecedor
-$comprar
+$comprar = $_POST['produto'];
+
