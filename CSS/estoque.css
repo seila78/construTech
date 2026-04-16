@@ -187,19 +187,13 @@ tbody tr:hover {
     transform: translateY(2px);
 }
 
-.acao {
-    position: relative; /* Necessário para posicionar a linha */
-    padding-left: 15px; /* Espaço para a linha não atropelar o texto */
+.azul {
+    background-color: #004aad;
+    text-align: right;
 }
 
-.acao::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 10%;      /* Distância do topo (ajuste como quiser) */
-    height: 80%;   /* Aqui você define a altura da linha! */
-    width: 1px;    /* Espessura da linha */
-    background-color: #ccc; /* A cor que você já estava usando */
+.acao {
+    background-color: #fc6b1b;
 }
 
 .btn-editar {
@@ -225,6 +219,12 @@ tbody tr:hover {
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.3s ease;
 }
+
+.btn-editar:hover, .btn-excluir:hover {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+}
+
 
 .total-investido {
     margin-top: 50px;
