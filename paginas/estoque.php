@@ -35,17 +35,21 @@
                 </tr>
             </thead>
             <tbody>
+<?php
+require_once __DIR__ . '/../php/data.php';
+
+//cria a tabela de acordo com itens em estoque
+foreach($produtos as $produto){
+    echo '
                 <tr>
-                    <td>1</td>
+                    <td>'.$produto['id'].'</td>
                     <td>
-                        <img class="img-produto" src="https://static.vecteezy.com/system/resources/thumbnails/053/814/416/small/versatile-bag-of-powdered-cement-for-construction-projects-on-transparent-background-png.png" alt="Cimento CP II (50kg)">
+                        <img class="img-produto" src="'.$produto['imagem'].'" alt="'.$produto['nome'].'">
                     </td>
-                    <td><strong>Cimento CP II (50kg)</strong></td>
-                    <td><span class="categoria">Bruto</span></td>
-                    <td class="descricao">Essencial para fundações, contrapisos e rebocos. Oferece alta durabilidade e resistência para a estrutura da sua obra. Vendido por saco.</td>
-                    <td class="preco">R$ 32,90</td>
-                    <td class="preco">R$ 32,90</td>
-                    <td class="preco">R$ 32,90</td>
+                    <td><strong>'.$produto['nome'].'</strong></td>
+                    <td><span class="categoria">'.$produto['categoria'].'</span></td>
+                    <td class="descricao">'.$produto['descricao'].'</td>
+                    <td class="preco">R$'.$produto['preco'].'</td>
                     <td class="acao"><button class="btn-editar">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z" />
@@ -62,72 +66,9 @@
                         </svg>
                     </button></td>
                 </tr>
-
-                <tr>
-                    <td>2</td>
-                    <td>
-                        <img class="img-produto" src="https://cdn.awsli.com.br/2500x2500/2674/2674061/produto/343205423/23cddc63643264a219aa251e10b1a191-7l9s2ngs5t.jpg" alt="Areia Média">
-                    </td>
-                    <td><strong>Areia Média</strong></td>
-                    <td><span class="categoria">Bruto</span></td>
-                    <td class="descricao">Usada na mistura de argamassa e concreto. Possui granulometria ideal para um acabamento perfeito e estruturado. Vendida por metro cúbico (m³) ou saco.</td>
-                    <td class="preco">R$ 120,00</td>
-                </tr>
-
-                <tr>
-                    <td>2</td>
-                    <td>
-                        <img class="img-produto" src="https://cdn.awsli.com.br/2500x2500/2674/2674061/produto/343205423/23cddc63643264a219aa251e10b1a191-7l9s2ngs5t.jpg" alt="Areia Média">
-                    </td>
-                    <td><strong>Areia Média</strong></td>
-                    <td><span class="categoria">Bruto</span></td>
-                    <td class="descricao">Usada na mistura de argamassa e concreto. Possui granulometria ideal para um acabamento perfeito e estruturado. Vendida por metro cúbico (m³) ou saco.</td>
-                    <td class="preco">R$ 120,00</td>
-                </tr>
-
-                <tr>
-                    <td>2</td>
-                    <td>
-                        <img class="img-produto" src="https://cdn.awsli.com.br/2500x2500/2674/2674061/produto/343205423/23cddc63643264a219aa251e10b1a191-7l9s2ngs5t.jpg" alt="Areia Média">
-                    </td>
-                    <td><strong>Areia Média</strong></td>
-                    <td><span class="categoria">Bruto</span></td>
-                    <td class="descricao">Usada na mistura de argamassa e concreto. Possui granulometria ideal para um acabamento perfeito e estruturado. Vendida por metro cúbico (m³) ou saco.</td>
-                    <td class="preco">R$ 120,00</td>
-                </tr>
-
-                <tr>
-                    <td>2</td>
-                    <td>
-                        <img class="img-produto" src="https://cdn.awsli.com.br/2500x2500/2674/2674061/produto/343205423/23cddc63643264a219aa251e10b1a191-7l9s2ngs5t.jpg" alt="Areia Média">
-                    </td>
-                    <td><strong>Areia Média</strong></td>
-                    <td><span class="categoria">Bruto</span></td>
-                    <td class="descricao">Usada na mistura de argamassa e concreto. Possui granulometria ideal para um acabamento perfeito e estruturado. Vendida por metro cúbico (m³) ou saco.</td>
-                    <td class="preco">R$ 120,00</td>
-                </tr>
-
-                <tr>
-                    <td>2</td>
-                    <td>
-                        <img class="img-produto" src="https://cdn.awsli.com.br/2500x2500/2674/2674061/produto/343205423/23cddc63643264a219aa251e10b1a191-7l9s2ngs5t.jpg" alt="Areia Média">
-                    </td>
-                    <td><strong>Areia Média</strong></td>
-                    <td><span class="categoria">Bruto</span></td>
-                    <td class="descricao">Usada na mistura de argamassa e concreto. Possui granulometria ideal para um acabamento perfeito e estruturado. Vendida por metro cúbico (m³) ou saco.</td>
-                    <td class="preco">R$ 120,00</td>
-                </tr>
-
-                <tr>
-                    <td>2</td>
-                    <td>
-                        <img class="img-produto" src="https://cdn.awsli.com.br/2500x2500/2674/2674061/produto/343205423/23cddc63643264a219aa251e10b1a191-7l9s2ngs5t.jpg" alt="Areia Média">
-                    </td>
-                    <td><strong>Areia Média</strong></td>
-                    <td><span class="categoria">Bruto</span></td>
-                    <td class="descricao">Usada na mistura de argamassa e concreto. Possui granulometria ideal para um acabamento perfeito e estruturado. Vendida por metro cúbico (m³) ou saco.</td>
-                    <td class="preco">R$ 120,00</td>
-                </tr>
+            ';
+}
+?>
             </tbody>
         </table>
         
@@ -144,9 +85,9 @@
             </tbody>
         </table>
 
-        <form class="form-adicionar" id="adicionar">
+        <form method="POST" action="data.php" class="form-adicionar" id="adicionar" enctype="multipart/form-data">
             <h2>Adicionar Produto:</h2>
-            <input type="text" id="produto" name="produto" placeholder="Nome do produto">
+            <input type="text" id="produto" name="nome" placeholder="Nome do produto">
             <select id="categoria" name="categoria">
                 <option value="">Selecione uma categoria</option>
                 <option value="Bruto">Bruto</option>
@@ -155,6 +96,7 @@
             </select>
             <input type="text" id="descricao" name="descricao" placeholder="Descrição">
             <input type="number" id="preco" name="preco" placeholder="R$ 0,00" step="0.01">
+            <input type="file" name="imagem">
             <input type="number" id="quantidade" name="quantidade" placeholder="Quantidade">
             <button type="submit" class="adicionar">Adicionar</button>
         </form>
