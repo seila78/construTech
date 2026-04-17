@@ -32,7 +32,7 @@ nav {
 }
 
 .container {
-    max-width: 1500px;
+    max-width: 1700px;
     margin: 50px auto;
     padding: 0 20px;
     display: flex;
@@ -49,15 +49,14 @@ nav {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    position: sticky;
-    top: 20px;
 }
 
 table {
-    width: 100%;
+    width: 80%;
     border-collapse: collapse;
     background-color: #ffffff;
     border-radius: 15px;
+    margin-left: 70px;
     overflow: hidden;
     box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
 }
@@ -120,124 +119,57 @@ tbody tr:hover {
     text-transform: uppercase;
 }
 
-.button {
-    height: 50px;
-    width: 50px;
-    cursor: pointer;
-    padding: 10px;
-    border-radius: 50%;
-    background-color: #fc6b1b;
-    border: 2px solid #0c0c0c;
-    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
-    display: flex;
-    position: relative;
-    transition: all 0.5s;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    z-index: 1000;
-}
-
-.button::after {
-    content: "adicionar produto";
-    position: absolute;
-    width: auto;
-    background-color: white;
-    color: #003985;
-    font-size: 1em;
-    box-sizing: border-box;
-    padding: 10px 15px;
-    border-radius: 25px;
-    top: -60px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-    transition: all 0.5s;
-    transform: scale(0);
-}
-
-.svg {
-    transition: all 0.5s;
-}
-
-.button:hover {
-    transform: translateY(-3px);
-    background-color: #bd4606;
-}
-
-.button:hover .svg {
-    fill: white;
-    transform: scale(1.2);
-}
-
-.button:hover::after {
-    transform: scale(1);
-}
-
-.button:active {
-    transform: translateY(2px);
-}
-
-.azul {
-    background-color: #004aad;
-    text-align: right;
-}
-
-.acao {
-    background-color: #fc6b1b;
-}
-
-.btn-editar {
-    padding: 10px 13px;
-    border-radius: 50%;
+.botao {
+    background: #004aad;
+    color: white;
     border: none;
-    color: #ffffff;
-    background-color: #004aad;
-    font-size: 14px;
-    font-weight: bold;
+    padding: 15px 30px;
+    border-radius: 20px;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.btn-excluir {
-    padding: 10px 13px;
-    border-radius: 50%;
-    border: none;
-    background-color: #ff0000;
-    color: #ffffff;
-    font-size: 14px;
+    font-size: 1.1rem;
     font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-}
-
-.btn-editar:hover, .btn-excluir:hover {
-    transform: scale(1.1);
-    filter: brightness(1.2);
-}
-
-.login-texto {
-    text-align: center;
-    justify-content: center;
-    margin-bottom: 20px;
-    margin-right: 100px;
-}
-
-.login-texto h1 {
-    font-size: 70px;
-    margin-bottom: 15px;
-    color: #ffffff;
-    border-bottom: #fc6b1b 2px solid;
+    transition: 0.3s;
+    width: 50%;
     white-space: nowrap;
+    margin-top: -20px;
 }
 
-.login-texto img {
-    width: 400px;
-    height: auto;
+.botao:hover {
+    background: #191970;
+    transform: scale(1.05);
+    transform: brightness(1.2);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 a {
     text-decoration: none;
+}
+
+.card-lucro {
+    text-align: center;
+    background: #fc6b1b;
+    padding: 30px;
+    border-radius: 20px;
+    width: 500px;
+    height: 300px;
+    margin-top: 40px;
+    border: 3px solid #ff985c; 
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.card-lucro span {
+    color: #004aad;
+    margin-bottom: 50px;
+    font-size: 43px;
+}
+
+.card-lucro h2{
+    color: #ffffff;
+    margin-bottom: 50px;
+    font-size: 75px;
+    margin-top: 25px;
 }
 
 .card {
@@ -245,29 +177,41 @@ a {
     background: #fc6b1b;
     padding: 30px;
     border-radius: 20px;
-    width: 300px;
-    height: auto;
-    margin: 0;
+    width: 500px;
+    height: 300px;
+    margin-top: 40px;
     border: 3px solid #ff985c; 
     box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
-.card img {
-    width: 250px;
-    height: auto;
+.card span {
+    color: #004aad;
     margin-bottom: 50px;
+    font-size: 45px;
 }
 
 .card h2{
-    color: #003985;
+    color: #ffffff;
     margin-bottom: 50px;
     font-size: 45px;
-    white-space: nowrap;
+    margin-top: 30px;
 }
 
 .card:hover {
+    background: #ff7729;
+    border-color: #fc6b1b;
+    box-shadow: 
+        0 20px 60px rgba(0, 0, 0, 0.5),
+        inset 4px 4px 15px rgba(255, 255, 255, 0.3),
+        inset -4px -4px 15px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+}
+
+.card-lucro:hover {
     background: #ff7729;
     border-color: #fc6b1b;
     box-shadow: 

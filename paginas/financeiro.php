@@ -118,24 +118,116 @@
                         <td class="preco">R$ 32,90</td>
                         <td class="preco">R$ 32,90</td>
                     </tr>
-                    
-
+                    <tr>
+                        <td><strong>Cimento CP II (50kg)</strong></td>
+                        <td><span class="categoria">Bruto</span></td>
+                        <td class="preco">R$ 32,90</td>
+                        <td class="preco">R$ 32,90</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cimento CP II (50kg)</strong></td>
+                        <td><span class="categoria">Bruto</span></td>
+                        <td class="preco">R$ 32,90</td>
+                        <td class="preco">R$ 32,90</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cimento CP II (50kg)</strong></td>
+                        <td><span class="categoria">Bruto</span></td>
+                        <td class="preco">R$ 32,90</td>
+                        <td class="preco">R$ 32,90</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cimento CP II (50kg)</strong></td>
+                        <td><span class="categoria">Bruto</span></td>
+                        <td class="preco">R$ 32,90</td>
+                        <td class="preco">R$ 32,90</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cimento CP II (50kg)</strong></td>
+                        <td><span class="categoria">Bruto</span></td>
+                        <td class="preco">R$ 32,90</td>
+                        <td class="preco">R$ 32,90</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cimento CP II (50kg)</strong></td>
+                        <td><span class="categoria">Bruto</span></td>
+                        <td class="preco">R$ 32,90</td>
+                        <td class="preco">R$ 32,90</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cimento CP II (50kg)</strong></td>
+                        <td><span class="categoria">Bruto</span></td>
+                        <td class="preco">R$ 32,90</td>
+                        <td class="preco">R$ 32,90</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cimento CP II (50kg)</strong></td>
+                        <td><span class="categoria">Bruto</span></td>
+                        <td class="preco">R$ 32,90</td>
+                        <td class="preco">R$ 32,90</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cimento CP II (50kg)</strong></td>
+                        <td><span class="categoria">Bruto</span></td>
+                        <td class="preco">R$ 32,90</td>
+                        <td class="preco">R$ 32,90</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cimento CP II (50kg)</strong></td>
+                        <td><span class="categoria">Bruto</span></td>
+                        <td class="preco">R$ 32,90</td>
+                        <td class="preco">R$ 32,90</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cimento CP II (50kg)</strong></td>
+                        <td><span class="categoria">Bruto</span></td>
+                        <td class="preco">R$ 32,90</td>
+                        <td class="preco">R$ 32,90</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cimento CP II (50kg)</strong></td>
+                        <td><span class="categoria">Bruto</span></td>
+                        <td class="preco">R$ 32,90</td>
+                        <td class="preco">R$ 32,90</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cimento CP II (50kg)</strong></td>
+                        <td><span class="categoria">Bruto</span></td>
+                        <td class="preco">R$ 32,90</td>
+                        <td class="preco">R$ 32,90</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cimento CP II (50kg)</strong></td>
+                        <td><span class="categoria">Bruto</span></td>
+                        <td class="preco">R$ 32,90</td>
+                        <td class="preco">R$ 32,90</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cimento CP II (50kg)</strong></td>
+                        <td><span class="categoria">Bruto</span></td>
+                        <td class="preco">R$ 32,90</td>
+                        <td class="preco">R$ 32,90</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
 
         <div class="lado-direito">
+            <div class="card-lucro">
+                <h2><span>-R$ 152,90</span><br>Lucro</h2>
+            </div>
             <a href="./estoque.php">
                 <div class="card">
-                    <h2>0</h2>
-                    <h2>Estoque</h2>
+                    <h2><span>0</span><br>pedidos pendentes</h2>
+                    <button class="botao">Ver pedidos</button>
                 </div>
             </a>
-
-            <div class="card">
-                <h2>R$ 152,90</h2>
-                <h2>Financeiro</h2>
-            </div>
+            <a href="./financeiro.php">
+                <div class="card">
+                    <h2><span>0</span><br>Baixo estoque</h2>
+                    <button class="botao">Solicitar fornecedor</button>
+                </div>
+            </a>
         </div>
     </main>
 </body>
