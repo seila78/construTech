@@ -31,4 +31,10 @@ if ($acesso === true) {
     header("Location: ../index.php");
     exit;
 }
+session_start();
+
+if (isset($_SESSION['erro'])) {
+    echo "<script>alert('{$_SESSION['erro']}');</script>";
+    unset($_SESSION['erro']);
+}
 ?>

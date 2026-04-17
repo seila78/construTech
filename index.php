@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -9,25 +12,32 @@
 <body>
 
     <?php
+    if (isset($_SESSION['erro'])) {
+        echo "<script>alert('{$_SESSION['erro']}');</script>";
+        unset($_SESSION['erro']);
+    }
+    ?>
+
+    <?php
         require 'partials/header.php';
     ?>
     
     <main class="container">
         <div class="login-texto">
-            <h1>Entre no sistema:</h1><!--bom dia, boa tarde, boa noite-->
+            <h1>Entre no sistema:</h1>
             <img src="./imagens/Design sem nome.png" alt="Login">
         </div>
 
         <div class="formulario">
             <form action='./php/login.php' method='POST'>
-            <h2>ENTRE NO SISTEMA!</h2>
-            <p>Nome de usuário:</p>
-            <input type="text" placeholder="E-mail" name='user'> 
-            <br>
-            <p>Senha:</p>
-            <input type="password" placeholder="Senha" name='senha'> 
-            <br>
-            <button type="submit" class="btn-formulario">ENVIAR</button>
+                <h2>ENTRE NO SISTEMA!</h2>
+                <p>Nome de usuário:</p>
+                <input type="text" placeholder="E-mail" name='user' required> 
+                <br>
+                <p>Senha:</p>
+                <input type="password" placeholder="Senha" name='senha' required> 
+                <br>
+                <button type="submit" class="btn-formulario">ENVIAR</button>
             </form>
         </div>
     </main>
