@@ -77,6 +77,10 @@ nav {
     white-space: nowrap;
 }
 
+.vermelho{
+    color:#d31f1f
+}
+
 .formulario p{
     color: #ffffff;
     text-align: left;
