@@ -49,28 +49,10 @@ nav {
     max-width: 1500px;
     margin: 10px auto;
     padding: 0 10px;
-    columns: 2;
     margin-top: 50px;
-}
-
-.login-texto {
-    text-align: center;
-    justify-content: center;
-    margin-bottom: 20px;
-    margin-right: 100px;
-}
-
-.login-texto h1 {
-    font-size: 70px;
-    margin-bottom: 15px;
-    color: #ffffff;
-    border-bottom: #fc6b1b 2px solid;
-    white-space: nowrap;
-}
-
-.login-texto img {
-    width: 400px;
-    height: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
 }
 
 a {
