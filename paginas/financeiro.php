@@ -222,7 +222,7 @@
                     <button class="botao">Ver pedidos</button>
                 </div>
             </a>
-            <a href="./financeiro.php">
+            <a href="./baixo_estoque.php">
                 <div class="card">
                     <h2><span>0</span><br>Baixo estoque</h2>
                     <button class="botao">Solicitar fornecedor</button>
