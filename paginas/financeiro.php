@@ -224,18 +224,19 @@
             <div class="card-lucro">
                 <h2><span>-R$ 152,90</span><br>Lucro</h2>
             </div>
-            <a href="./pendente.php">
                 <div class="card">
                     <h2><span>0</span><br>pedidos pendentes</h2>
-                    <button class="botao">Ver pedidos</button>
+                    <a href="./pendente.php">
+                        <button class="botao">Ver pedidos</button>
+                    </a>
                 </div>
-            </a>
-            <a href="./baixo_estoque.php">
+            
                 <div class="card">
                     <h2><span>0</span><br>Baixo estoque</h2>
-                    <button class="botao">Solicitar fornecedor</button>
+                    <a href="./baixo_estoque.php">
+                        <button class="botao">Solicitar fornecedor</button>
+                    </a>
                 </div>
-            </a>
         </div>
     </main>
 </body>
