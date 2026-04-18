@@ -109,14 +109,9 @@ tbody tr:hover {
     white-space: nowrap;
 }
 
-.categoria {
-    background-color: #004aad;
-    color: #ffffff;
-    padding: 5px 12px;
-    border-radius: 20px;
-    font-size: 12px;
-    font-weight: bold;
-    text-transform: uppercase;
+svg {
+    width: 30px;
+    height: 30px;
 }
 
 .botao {

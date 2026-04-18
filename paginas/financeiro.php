@@ -24,13 +24,21 @@
                 <tbody>
                     <tr>
                         <td><strong>Cimento CP II (50kg)</strong></td>
-                        <td><span class="categoria">Bruto</span></td>
-                        <td class="preco">R$ 32,90</td>
+                        <td>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="200" height="200">
+                                <polygon points="50,10 90,50 65,50 65,90 35,90 35,50 10,50" fill="#4CAF50" />
+                            </svg>
+                        </td>
+                        <td class="preco">13</td>
                         <td class="preco">R$ 32,90</td>
                     </tr>
                     <tr>
                         <td><strong>Cimento CP II (50kg)</strong></td>
-                        <td><span class="categoria">Bruto</span></td>
+                        <td>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="200" height="200">
+                                <polygon points="35,10 65,10 65,50 90,50 50,90 10,50 35,50" fill="#F44336" />
+                            </svg>
+                        </td>
                         <td class="preco">R$ 32,90</td>
                         <td class="preco">R$ 32,90</td>
                     </tr>
