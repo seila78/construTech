@@ -216,7 +216,7 @@
             <div class="card-lucro">
                 <h2><span>-R$ 152,90</span><br>Lucro</h2>
             </div>
-            <a href="./estoque.php">
+            <a href="./pendente.php">
                 <div class="card">
                     <h2><span>0</span><br>pedidos pendentes</h2>
                     <button class="botao">Ver pedidos</button>
