@@ -8,6 +8,7 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ConstruTech</title>
     <link rel="stylesheet" href="./css/style.css">
+    <link rel="icon" type="image/x-icon" href="./imagens/icon.png">
 </head>
 <body>
 
@@ -25,7 +26,7 @@ session_start();
     <main class="container">
         <div class="login-texto">
             <h1>Entre no sistema:</h1>
-            <img src="./imagens/Design sem nome.png" alt="Login">
+            <img src="./imagens/imagem_inicio.png" alt="Login">
         </div>
 
         <div class="formulario">

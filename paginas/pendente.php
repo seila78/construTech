@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ConstruTech</title>
     <link rel="stylesheet" href="../CSS/pendente.css">
+    <link rel="icon" type="image/x-icon" href="./imagens/icon.png">
 </head>
 <body>
     <?php

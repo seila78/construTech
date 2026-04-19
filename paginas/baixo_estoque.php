@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ConstruTech - Baixo Estoque</title>
     <link rel="stylesheet" href="../CSS/baixo_estoque.css">
+    <link rel="icon" type="image/x-icon" href="../imagens/icon.png">
 </head>
 <body>
     <?php
