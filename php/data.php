@@ -3,10 +3,11 @@ session_start();
 //---------------------------------------ESTOQUE-------------------------------------------- 
 
 $categorias = [
+    'todos'       => 'todos',
     'bruto'       => 'Bruto',
     'ferramentas' => 'Ferramentas',
     'acabamento'  => 'Acabamento'
-];//filtro de produto
+];
 
 $produtos = [
 [
