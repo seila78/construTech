@@ -30,7 +30,7 @@
                         data-valor="<?php echo number_format($pedido['Valor Total'], 2, ',', '.'); ?>">
                         Visualizar
                     </button>
-                    <button class="btn-card" onclick="alert('Pedido #<?php echo $pedido['id']; ?> aprovado com sucesso!')">
+                    <button class="btn-card" onclick="aprovarPedido(this, <?php echo $pedido['id']; ?>)">
                         Aprovar
                     </button>
                 </div>
@@ -52,6 +52,20 @@
     </div>
 
     <script>
+        function aprovarPedido(botao, id) {
+            alert('Pedido #' + id + ' aprovado com sucesso!');
+            
+            const card = botao.closest('.card');
+            if (card) {
+                card.style.transition = "opacity 0.3s ease";
+                card.style.opacity = "0";
+                
+                setTimeout(() => {
+                    card.remove();
+                }, 300);
+            }
+        }
+
         document.addEventListener("DOMContentLoaded", function() {
             const modal = document.getElementById("modal-detalhes");
             const closeBtn = document.querySelector(".close-btn");
