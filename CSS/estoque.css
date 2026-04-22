@@ -88,7 +88,13 @@ td {
     color: #003985;
     border-bottom: 1px solid #e0e0e0;
 }
+td.baixo { 
+    background-color: #ff9a9a;
+}
 
+td.alerta { 
+    background-color: #ffe79a;
+ }
 tbody tr {
     transition: background-color 0.3s ease;
 }
