@@ -51,10 +51,8 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
             ];     
 }
 
-// 1. Captura o filtro atual da URL (se não houver, o padrão é 'todos')
 $filtroAtual = isset($_GET['filtro']) ? strtolower($_GET['filtro']) : 'todos';
 
-// 2. Cria uma lista de produtos filtrados
 $produtosExibidos = [];
 foreach($_SESSION['produtos'] as $produto) {
     if($filtroAtual === 'todos' || strtolower($produto['categoria']) === $filtroAtual) {
@@ -62,12 +60,14 @@ foreach($_SESSION['produtos'] as $produto) {
     }
 }
 
-// 3. Usa a lista filtrada para montar a tabela
 foreach($produtosExibidos as $produto){
     $baixoEstoque = '';
 
     if ($produto['quantidade'] < 10) {
-        $baixoEstoque = 'vermelho';
+        $baixoEstoque = 'baixo';
+    }
+    if ($produto['quantidade'] < 15 && $produto['quantidade'] > 10) {
+        $baixoEstoque = 'alerta';
     }
     
     echo '
@@ -115,8 +115,7 @@ foreach($produtosExibidos as $produto){
                     <td colspan="8" class="total">
                         <?php
                         $totalEstoque = 0;
-                            
-                        // Agora soma apenas os produtos que passaram pelo filtro
+
                         foreach($produtosExibidos as $produto){
                             $totalEstoque += ($produto['quantidade']*(float)$produto['preco']);
                         }
