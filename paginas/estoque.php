@@ -13,10 +13,10 @@
     ?>
 
     <ul class="filtro">
-        <li>todos</li>
-        <li>bruto</li>
-        <li>acabamento</li>
-        <li>ferramentas</li>
+        <a href="?filtro=todos" style="text-decoration: none; color: inherit;"><li>todos</li></a>
+        <a href="?filtro=bruto" style="text-decoration: none; color: inherit;"><li>bruto</li></a>
+        <a href="?filtro=acabamento" style="text-decoration: none; color: inherit;"><li>acabamento</li></a>
+        <a href="?filtro=ferramentas" style="text-decoration: none; color: inherit;"><li>ferramentas</li></a>
     </ul>
     
     <div class="container-tabela">
@@ -40,9 +40,8 @@
 require_once __DIR__ . '/../php/data.php';
 
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
-
    $_SESSION['produtos'][] = [
-            'id'        => max(array_column($produtos,'id')) + 1,
+            'id'        => max(array_column($_SESSION['produtos'],'id')) + 1,
             'nome'      => $_POST['nome'],
             'categoria' => $_POST['categoria'],
             'descricao' => $_POST['descricao'],
@@ -50,49 +49,56 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
             'preco'     => $_POST['preco'],
             'quantidade'=> $_POST['quantidade']
             ];     
-//print_r($_SESSION['produtos']);
-            // header('Location: ../paginas/estoque.php');
-            // exit;
 }
 
-//cria a tabela de acordo com itens em estoque
+// 1. Captura o filtro atual da URL (se não houver, o padrão é 'todos')
+$filtroAtual = isset($_GET['filtro']) ? strtolower($_GET['filtro']) : 'todos';
 
+// 2. Cria uma lista de produtos filtrados
+$produtosExibidos = [];
+foreach($_SESSION['produtos'] as $produto) {
+    if($filtroAtual === 'todos' || strtolower($produto['categoria']) === $filtroAtual) {
+        $produtosExibidos[] = $produto;
+    }
+}
 
-foreach($_SESSION['produtos'] as $produto){
+// 3. Usa a lista filtrada para montar a tabela
+foreach($produtosExibidos as $produto){
     $baixoEstoque = '';
 
-if ($produto['quantidade'] < 10) {
-    $baixoEstoque = 'vermelho';
-}
+    if ($produto['quantidade'] < 10) {
+        $baixoEstoque = 'vermelho';
+    }
+    
     echo '
-                <tr>
-                    <td>'.$produto['id'].'</td>
-                    <td>
-                        <img class="img-produto" src="'.$produto['imagem'].'" alt="'.$produto['nome'].'">
-                    </td>
-                    <td><strong>'.$produto['nome'].'</strong></td>
-                    <td><span class="categoria">'.$produto['categoria'].'</span></td>
-                    <td class="descricao">'.$produto['descricao'].'</td>
-                    <td class="preco">R$'.$produto['preco'].'</td>
-                    <td class="preco'.$baixoEstoque.'">'.$produto['quantidade'].'</td>
-                    <td class="preco">'.((float)$produto['quantidade']*(float)$produto['preco']).'</td>
-                    <td class="acao"><button class="btn-editar">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z" />
-                            <line x1="3.5" y1="16.5" x2="7.5" y2="20.5" />
-                            <line x1="14" y1="6" x2="18" y2="10" />
-                        </svg>
-                    </button></td>
-                    <td class="acao"><button class="btn-excluir">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <polyline points="3 6 5 6 21 6" />
-                            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
-                            <line x1="10" y1="11" x2="10" y2="17" />
-                            <line x1="14" y1="11" x2="14" y2="17" />
-                        </svg>
-                    </button></td>
-                </tr>
-            ';
+        <tr>
+            <td>'.$produto['id'].'</td>
+            <td>
+                <img class="img-produto" src="'.$produto['imagem'].'" alt="'.$produto['nome'].'">
+            </td>
+            <td><strong>'.$produto['nome'].'</strong></td>
+            <td><span class="categoria">'.$produto['categoria'].'</span></td>
+            <td class="descricao">'.$produto['descricao'].'</td>
+            <td class="preco">R$'.number_format($produto['preco'], 2, ',', '.').'</td>
+            <td class="preco'.$baixoEstoque.'">'.$produto['quantidade'].'</td>
+            <td class="preco">R$'.number_format((float)$produto['quantidade'] * (float)$produto['preco'], 2, ',', '.').'</td>
+            <td class="acao"><button class="btn-editar">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z" />
+                    <line x1="3.5" y1="16.5" x2="7.5" y2="20.5" />
+                    <line x1="14" y1="6" x2="18" y2="10" />
+                </svg>
+            </button></td>
+            <td class="acao"><button class="btn-excluir">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="3 6 5 6 21 6" />
+                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+                    <line x1="10" y1="11" x2="10" y2="17" />
+                    <line x1="14" y1="11" x2="14" y2="17" />
+                </svg>
+            </button></td>
+        </tr>
+    ';
 }
 ?>
             </tbody>
@@ -110,11 +116,12 @@ if ($produto['quantidade'] < 10) {
                         <?php
                         $totalEstoque = 0;
                             
-                            foreach($_SESSION['produtos'] as $produto){
-                                $totalEstoque += ($produto['quantidade']*(float)$produto['preco']);
-                            }
+                        // Agora soma apenas os produtos que passaram pelo filtro
+                        foreach($produtosExibidos as $produto){
+                            $totalEstoque += ($produto['quantidade']*(float)$produto['preco']);
+                        }
                         
-                        echo "R$ $totalEstoque";
+                        echo "R$ " . number_format($totalEstoque, 2, ',', '.');
                         ?>
                     </td>
                 </tr>
