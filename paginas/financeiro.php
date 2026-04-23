@@ -38,6 +38,8 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
                                     <polygon points="35,10 65,10 65,50 90,50 50,90 10,50 35,50" fill="#F44336" />
                                 </svg>';
+
+                                $transacao['valor'] = -($transacao['valor']);
                             }
 
                             $valorFormatado = 'R$ ' . number_format($transacao['valor'], 2, ',', '.');
