@@ -88,11 +88,11 @@ td {
     color: #003985;
     border-bottom: 1px solid #e0e0e0;
 }
-td.baixo { 
-    background-color: #ff9a9a;
+tr.baixo td:not(.acao){ 
+    background-color: #ffc0c0;
 }
 
-td.alerta { 
+tr.alerta td:not(.acao){ 
     background-color: #ffe79a;
  }
 tbody tr {

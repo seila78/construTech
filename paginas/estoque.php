@@ -63,15 +63,15 @@ foreach($_SESSION['produtos'] as $produto) {
 foreach($produtosExibidos as $produto){
     $baixoEstoque = '';
 
-    if ($produto['quantidade'] <= 10) {
+    if ($produto['quantidade'] <= 30) {
         $baixoEstoque = 'baixo';
     }
-    elseif($produto['quantidade'] < 15) {
+    elseif($produto['quantidade'] < 50) {
         $baixoEstoque = 'alerta';
     }
     
     echo '
-        <tr>
+        <tr class="'.$baixoEstoque.'">
             <td>'.$produto['id'].'</td>
             <td>
                 <img class="img-produto" src="'.$produto['imagem'].'" alt="'.$produto['nome'].'">
@@ -80,7 +80,7 @@ foreach($produtosExibidos as $produto){
             <td><span class="categoria">'.$produto['categoria'].'</span></td>
             <td class="descricao">'.$produto['descricao'].'</td>
             <td class="preco">R$'.number_format($produto['preco'], 2, ',', '.').'</td>
-            <td class="preco'.$baixoEstoque.'">'.$produto['quantidade'].'</td>
+            <td class="preco">'.$produto['quantidade'].'</td>
             <td class="preco">R$'.number_format((float)$produto['quantidade'] * (float)$produto['preco'], 2, ',', '.').'</td>
             <td class="acao"><button class="btn-editar">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
