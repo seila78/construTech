@@ -13,7 +13,7 @@
         require_once '../php/data_pedente.php'; 
     ?>
 
-    <h1 class="titulo">pedidos pendentes: </h1>
+    <h1 class="titulo">Pedidos Pendentes: </h1>
     
     <main class="container">
         <?php foreach ($pedidos as $pedido): ?>
