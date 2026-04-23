@@ -40,17 +40,36 @@
 require_once __DIR__ . '/../php/data.php';
 
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
-   $_SESSION['produtos'][] = [
-            'id'        => max(array_column($_SESSION['produtos'],'id')) + 1,
+    
+    // Verifica se a ação é de exclusão
+    if (isset($_POST['acao']) && $_POST['acao'] === 'excluir') {
+        $idExcluir = (int)$_POST['id']; // Pega o ID enviado pelo formulário
+        
+        // Percorre a sessão para encontrar o produto com esse ID
+        foreach ($_SESSION['produtos'] as $indice => $produto) {
+            if ($produto['id'] === $idExcluir) {
+                unset($_SESSION['produtos'][$indice]); // Remove o item do array
+                $_SESSION['produtos'] = array_values($_SESSION['produtos']); // Reorganiza os índices do array
+                break; // Para o loop depois que encontrar e excluir
+            }
+        }
+    } 
+    // Se não for excluir, é porque está adicionando (seu código original)
+    else {
+        // Evita erro caso o array esteja vazio ao tentar achar o max(id)
+        $novoId = !empty($_SESSION['produtos']) ? max(array_column($_SESSION['produtos'],'id')) + 1 : 1;
+        
+        $_SESSION['produtos'][] = [
+            'id'        => $novoId,
             'nome'      => $_POST['nome'],
             'categoria' => $_POST['categoria'],
             'descricao' => $_POST['descricao'],
             'imagem'    => $_POST['imagem'],
             'preco'     => $_POST['preco'],
             'quantidade'=> $_POST['quantidade']
-            ];     
+        ];     
+    }
 }
-
 $filtroAtual = isset($_GET['filtro']) ? strtolower($_GET['filtro']) : 'todos';
 
 $produtosExibidos = [];
@@ -89,14 +108,20 @@ foreach($produtosExibidos as $produto){
                     <line x1="14" y1="6" x2="18" y2="10" />
                 </svg>
             </button></td>
-            <td class="acao"><button class="btn-excluir">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polyline points="3 6 5 6 21 6" />
-                    <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
-                    <line x1="10" y1="11" x2="10" y2="17" />
-                    <line x1="14" y1="11" x2="14" y2="17" />
-                </svg>
-            </button></td>
+          <td class="acao">
+                <form method="POST" style="margin: 0;">
+                    <input type="hidden" name="acao" value="excluir">
+                    <input type="hidden" name="id" value="'.$produto['id'].'">
+                    <button type="submit" class="btn-excluir">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="3 6 5 6 21 6" />
+                            <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+                            <line x1="10" y1="11" x2="10" y2="17" />
+                            <line x1="14" y1="11" x2="14" y2="17" />
+                        </svg>
+                    </button>
+                </form>
+            </td>   
         </tr>
     ';
 }
