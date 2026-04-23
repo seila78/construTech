@@ -9,52 +9,65 @@
 </head>
 <body>
     <?php
-        require '../partials/header2.php';
+        include '../partials/header2.php';
+        require_once __DIR__ . '/../php/data.php'; 
     ?>
     <h1 class="titulo">Produtos em Baixo Estoque</h1>
     <main class="container">
         
-        <div class="card">
-            <img src="https://static.vecteezy.com/system/resources/thumbnails/053/814/416/small/versatile-bag-of-powdered-cement-for-construction-projects-on-transparent-background-png.png" alt="Ícone Produto">
-            <h2>Cimento CP II (50kg)</h2>
+        <?php
+        $temProdutoBaixo = false;
+
+        foreach ($_SESSION['produtos'] as $produto) {
             
-            <div class="info-estoque">
-                <h3>Estoque: <span class="critico">5 unidades</span></h3>
-                <h3>Mínimo ideal: <span class="tranquilo"> 50 unidades</span></h3>
-            </div>
+            if ($produto['quantidade'] < 50) {
+                $temProdutoBaixo = true;
+                
+                if ($produto['quantidade'] <= 30) {
+                    $classeCor = 'critico';
+                    $statusTexto = 'Crítico';
+                } else {
+                    $classeCor = 'alerta';
+                    $statusTexto = 'Alerta';
+                }
 
-            <div class="btn-container">
-                <button class="btn-card btn-visualizar" data-pedido="Cimento CP II">Detalhes</button>
-                <button class="btn-card btn-comprar">Comprar</button>
-            </div>
-        </div>
+                echo '
+                <div class="card">
+                    <img src="' . htmlspecialchars($produto['imagem']) . '" alt="Ícone Produto">
+                    <h2>' . htmlspecialchars($produto['nome']) . '</h2>
+                    
+                    <div class="info-estoque">
+                        <p>Estoque: <span class="' . $classeCor . '">' . $produto['quantidade'] . ' unidades (' . $statusTexto . ')</span></p>
+                        <p>Mínimo ideal: <span class="tranquilo"> 50 unidades</span></p>
+                    </div>
 
-        <div class="card">
-            <img src="https://cdn.awsli.com.br/2500x2500/2674/2674061/produto/343205423/23cddc63643264a219aa251e10b1a191-7l9s2ngs5t.jpg" alt="Ícone Produto">
-            <h2>Areia Média</h2>
-            
-            <div class="info-estoque">
-                <h3>Estoque: <span class="critico">2 unidades</span></h3>
-                <h3>Mínimo ideal: <span class="tranquilo"> 10 unidades</span></h3>
-            </div>
+                    <div class="btn-container">
+                        <button class="btn-card btn-visualizar" data-nome="' . htmlspecialchars($produto['nome']) . '">Detalhes</button>
+                        <button class="btn-card btn-comprar" 
+                                data-id="' . $produto['id'] . '" 
+                                data-nome="' . htmlspecialchars($produto['nome']) . '">
+                            Comprar
+                        </button>
+                    </div>
+                </div>';
+            }
+        }
 
-            <div class="btn-container">
-                <button class="btn-card btn-visualizar" data-pedido="Areia Média">Detalhes</button>
-                <button class="btn-card btn-comprar">Comprar</button>
-            </div>
-        </div>
+        if (!$temProdutoBaixo) {
+            echo '<h2 style="color: white; text-align: center;">Nenhum produto com estoque crítico ou em alerta no momento!</h2>';
+        }
+        ?>
 
     </main>
 
     <div id="modal-detalhes" class="modal">
         <div class="modal-content">
             <span class="close-btn">&times;</span>
-            <h2 id="modal-title">Detalhes do Produto</h2>
+            <h2 id="modal-title-detalhes">Detalhes do Produto</h2>
             <div class="modal-body">
                 <p><strong>Fornecedor:</strong> Votorantim</p>
                 <p><strong>Última Compra:</strong> 10/03/2026</p>
-                <p><strong>Preço Médio:</strong> R$ 35,00 / un</p>
-                <p><strong>Status:</strong> Crítico</p>
+                <p><strong>Status:</strong> Verificar Estoque</p>
             </div>
         </div>
     </div>
@@ -62,69 +75,89 @@
     <div id="modal-comprar" class="modal">
         <div class="modal-content">
             <span class="close-btn">&times;</span>
-            <h2 id="modal-title">Detalhes do Produto</h2>
+            <h2 id="modal-title-comprar">Comprar Produto</h2>
             <div class="modal-body">
-                <p><strong>Estoque:</strong> 0 unidades</p>
-                <p><strong>Valor da compra:</strong> R$ 35,00</p>
-                <p class="info" style="text-align: center;"><strong>Informe a quantidade:</strong></p>
-                
+                <p class="info" style="text-align: center;"><strong>Informe a quantidade desejada:</strong></p>
                 <div class="acoes-comprar">
-                    <input type="number" min="1" placeholder="Quantidade" class="quantidade">
-                    <button id="btn-enviar-compra" class="btn-card fechar">Comprar</button>
+                    <input type="number" min="1" id="input-qtd" placeholder="Quantidade" class="quantidade">
+                    <button class="btn-card" id="btn-enviar-compra">Confirmar Compra</button>
                 </div>
-
             </div>
         </div>
     </div>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const modal = document.getElementById("modal-detalhes");
-            const modalComprar = document.getElementById("modal-comprar");
-            const closeBtns = document.querySelectorAll(".close-btn");
-            const botoesVisualizar = document.querySelectorAll(".btn-visualizar");
-            const botoesComprar = document.querySelectorAll(".btn-comprar");
-            const modalTitle = document.getElementById("modal-title");
-            const btnEnviarCompra = document.getElementById("btn-enviar-compra");
+    document.addEventListener("DOMContentLoaded", function() {
+        const modalComprar = document.getElementById("modal-comprar");
+        const modalDetalhes = document.getElementById("modal-detalhes");
 
-            botoesVisualizar.forEach(botao => {
-                botao.addEventListener("click", function() {
-                    const nomeProduto = this.getAttribute("data-pedido");
-                    modalTitle.innerText = "Detalhes: " + nomeProduto;
-                    modal.classList.add("mostrar");
-                });
-            });
+        const closeBtns = document.querySelectorAll(".close-btn");
+        const botoesComprar = document.querySelectorAll(".btn-comprar");
+        const botoesVisualizar = document.querySelectorAll(".btn-visualizar");
+        
+        const modalTitleComprar = document.getElementById("modal-title-comprar");
+        const modalTitleDetalhes = document.getElementById("modal-title-detalhes");
+        const btnEnviarCompra = document.getElementById("btn-enviar-compra");
+        const inputQuantidade = document.getElementById("input-qtd");
 
-            botoesComprar.forEach(botao => {
-                botao.addEventListener("click", function() {
-                    const nomeProduto = this.getAttribute("data-pedido");
-                    modalTitle.innerText = "Comprar: " + nomeProduto;
-                    modalComprar.classList.add("mostrar");
-                });
-            });
+        let produtoIdAtual = null;
 
-            closeBtns.forEach(btn => {
-                btn.addEventListener("click", function() {
-                    modal.classList.remove("mostrar");
-                    modalComprar.classList.remove("mostrar");
-                });
-            });
-
-            window.addEventListener("click", function(event) {
-                if (event.target === modal) {
-                    modal.classList.remove("mostrar");
-                }
-                if (event.target === modalComprar) {
-                    modalComprar.classList.remove("mostrar");
-                }
-            });
-
-            btnEnviarCompra.addEventListener("click", function() {
-                alert('Solicitação de compra aberta!');
-                modalComprar.classList.remove("mostrar");
-                document.querySelector(".quantidade").value = ""; 
+        botoesComprar.forEach(botao => {
+            botao.addEventListener("click", function() {
+                produtoIdAtual = this.getAttribute("data-id");
+                const nomeProduto = this.getAttribute("data-nome");
+                
+                modalTitleComprar.innerText = "Comprar: " + nomeProduto;
+                inputQuantidade.value = ""; 
+                modalComprar.classList.add("mostrar");
             });
         });
+
+        botoesVisualizar.forEach(botao => {
+            botao.addEventListener("click", function() {
+                const nomeProduto = this.getAttribute("data-nome");
+                modalTitleDetalhes.innerText = "Detalhes: " + nomeProduto;
+                modalDetalhes.classList.add("mostrar");
+            });
+        });
+
+        closeBtns.forEach(btn => {
+            btn.addEventListener("click", function() {
+                this.closest(".modal").classList.remove("mostrar");
+            });
+        });
+
+        btnEnviarCompra.addEventListener("click", function() {
+            const qtd = inputQuantidade.value;
+
+            if (qtd <= 0 || !produtoIdAtual) {
+                alert("Informe uma quantidade válida.");
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('id', produtoIdAtual);
+            formData.append('quantidade', qtd);
+
+            fetch('../php/atualizar_estoque.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Estoque atualizado! Nova quantidade: ' + data.nova_quantidade);
+                    location.reload(); 
+                } else {
+                    alert('Erro ao atualizar estoque no servidor.');
+                }
+            })
+            .catch(error => {
+                console.error('Erro:', error);
+                alert('Erro de comunicação com o servidor.');
+            });
+        });
+    });
     </script>
 </body>
 </html>

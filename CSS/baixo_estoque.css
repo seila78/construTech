@@ -71,6 +71,7 @@ nav {
     width: 150px;
     height: 150px;
     margin: 0 auto;
+    background-color: #ffffff;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
 }
 
@@ -88,14 +89,22 @@ nav {
     color: #ffffff;
     font-weight: 600;
 }
+
 .info-estoque p {
     margin-bottom: 10px;
 }
+
 .critico {
     color: red;
     border-bottom: red 2px solid;
 }
 
+.alerta {
+    color: #ffd700;
+    border-bottom: #ffd700 2px solid;
+}
+
+/* Removido o seletor duplicado */
 .tranquilo {
     color: #00b300;
     border-bottom: #00b300 2px solid;
@@ -200,8 +209,6 @@ nav {
     color: #003985;
     font-size: 35px;
     margin-bottom: 20px;
-    border-bottom: 2px solid #fc6b1b;
-    padding-bottom: 10px;
     text-align: center;
 }
 
