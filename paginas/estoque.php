@@ -63,10 +63,10 @@ foreach($_SESSION['produtos'] as $produto) {
 foreach($produtosExibidos as $produto){
     $baixoEstoque = '';
 
-    if ($produto['quantidade'] < 10) {
+    if ($produto['quantidade'] <= 10) {
         $baixoEstoque = 'baixo';
     }
-    if ($produto['quantidade'] < 15 && $produto['quantidade'] > 10) {
+    elseif($produto['quantidade'] < 15) {
         $baixoEstoque = 'alerta';
     }
     
