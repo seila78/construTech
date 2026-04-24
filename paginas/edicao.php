@@ -44,7 +44,7 @@ require '../partials/header2.php';
         </div>
                     
         <div class="card-content">
-            <form action="processar_edicao.php" method="POST">
+            <form action="../php/processar_edicao.php" method="POST">
                 <input type="hidden" name="id" value="<?= $produtoEncontrado['id'] ?>">
 
                 <input type="text" name="nome" class="input-nome" value="<?= $produtoEncontrado['nome'] ?>">
@@ -60,6 +60,8 @@ require '../partials/header2.php';
                     <option value="Ferramentas" <?= $produtoEncontrado['categoria'] == 'Ferramentas' ? 'selected' : '' ?>>Ferramentas</option>
                     <option value="Acabamento" <?= $produtoEncontrado['categoria'] == 'Acabamento' ? 'selected' : '' ?>>Acabamento</option>
                 </select>
+
+                <input type="text" name="imagem" class="input-descricao" value="<?= $produtoEncontrado['imagem']?>">
 
                 <button class="botao" type="submit"><a>Salvar Alterações</a></button>
             </form>
