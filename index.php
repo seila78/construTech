@@ -33,7 +33,7 @@ session_start();
             <form action='./php/login.php' method='POST'>
                 <h2>ENTRE NO SISTEMA!</h2>
                 <p>Nome de usuário:</p>
-                <input type="text" placeholder="E-mail" name='user' required> 
+                <input type="text" placeholder="Username" name='user' required> 
                 <br>
                 <p>Senha:</p>
                 <input type="password" placeholder="Senha" name='senha' required> 

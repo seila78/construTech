@@ -125,6 +125,13 @@ tbody tr:hover {
     white-space: nowrap;
 }
 
+.quantidade{
+    font-weight: bold;
+    font-size: 18px;
+    color: #004aad;
+    text-align: center;
+}
+
 .categoria {
     background-color: #004aad;
     color: #ffffff;

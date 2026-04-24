@@ -29,9 +29,9 @@
                     <th>Categoria</th>
                     <th>Descrição</th>
                     <th>Preço</th>
-                    <th>quantidade</th>
-                    <th>investido</th>
-                    <th class="azul">editar</th>
+                    <th>Quantidade</th>
+                    <th>Investido</th>
+                    <th class="azul">Editar</th>
                     <th class="azul"></th>
                 </tr>
             </thead>
@@ -95,7 +95,7 @@ foreach($produtosExibidos as $produto){
             <td><span class="categoria">'.$produto['categoria'].'</span></td>
             <td class="descricao">'.$produto['descricao'].'</td>
             <td class="preco">R$'.number_format($produto['preco'], 2, ',', '.').'</td>
-            <td class="preco">'.$produto['quantidade'].'</td>
+            <td class="quantidade">'.$produto['quantidade'].'</td>
             <td class="preco">R$'.number_format((float)$produto['quantidade'] * (float)$produto['preco'], 2, ',', '.').'</td>
             <td class="acao"><a href="./edicao.php?id='.$produto['id'].'"><button class="btn-editar">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -128,7 +128,7 @@ foreach($produtosExibidos as $produto){
         <table class="total-investido">
             <thead>
                 <tr>
-                    <th colspan="8" class="total-texto">Total Investido:</th>
+                    <th colspan="8" class="total-texto">Total em produtos:</th>
                 </tr>
             </thead>
             <tbody>
