@@ -1,5 +1,7 @@
 <?php
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    ;}
 //---------------------------------------ESTOQUE-------------------------------------------- 
 
 $categorias = [
@@ -147,8 +149,7 @@ $produtos = [
 ],
 ];
 
-//cria a sessão de produtos caso ela ainda não exista
 if (!isset($_SESSION['produtos'])) {
     $_SESSION['produtos'] = $produtos;
 }
-session_destroy();
+//session_destroy();

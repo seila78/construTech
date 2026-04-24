@@ -16,15 +16,13 @@
         
         $qtdPedidosPendentes = 0;
         
-        $listaPedidos = isset($_SESSION['pedidos']) ? $_SESSION['pedidos'] : (isset($pedidos) ? $pedidos : []);
+        $listaPedidos = isset($pedidos) ? $pedidos : [];
+
+        $pedidosAprovados = isset($_SESSION['pedidos_aprovados']) ? $_SESSION['pedidos_aprovados'] : [];
 
         if (is_array($listaPedidos)) {
             foreach ($listaPedidos as $pedido) {
-                if (isset($pedido['status'])) {
-                    if (strtolower($pedido['status']) === 'pendente') {
-                        $qtdPedidosPendentes++;
-                    }
-                } else {
+                if (!in_array($pedido['id'], $pedidosAprovados)) {
                     $qtdPedidosPendentes++;
                 }
             }
@@ -98,10 +96,15 @@
             </div>
             
             <div class="card">
+                
+
                 <h2><span><?php echo $qtdPedidosPendentes; ?></span><br>pedidos pendentes</h2>
+                
                 <a href="./pendente.php">
                     <button class="botao">Ver pedidos</button>
                 </a>
+
+
             </div>
             <div class="card">
                 <h2><span><?php echo $qtdBaixoEstoque; ?></span><br>Baixo estoque</h2>

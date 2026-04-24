@@ -1,5 +1,9 @@
 <?php
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    ;}
+
+require_once '../php/data_pedente.php';
 
 if (!isset($_SESSION['pedidos_aprovados'])) {
     $_SESSION['pedidos_aprovados'] = [];
@@ -10,6 +14,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['aprovar_id'])) {
     
     if (!in_array($id_aprovado, $_SESSION['pedidos_aprovados'])) {
         $_SESSION['pedidos_aprovados'][] = $id_aprovado;
+        
+        if (isset($_SESSION['pedidos']) && is_array($_SESSION['pedidos'])) {
+            foreach ($_SESSION['pedidos'] as $key => $pedido) {
+                if ((int)$pedido['id'] === $id_aprovado) {
+                    $_SESSION['pedidos'][$key]['status'] = 'aprovado';
+                    break; 
+                }
+            }
+        }
         
         $_SESSION['alerta_sucesso'] = "Pedido #" . str_pad($id_aprovado, 3, '0', STR_PAD_LEFT) . " aprovado com sucesso!";
     }
@@ -36,7 +49,6 @@ if (isset($_SESSION['alerta_sucesso'])) {
 <body>
     <?php
         require '../partials/header2.php';
-        require_once '../php/data_pedente.php'; 
     ?>
 
     <h1 class="titulo">Pedidos Pendentes: </h1>
@@ -87,7 +99,6 @@ if (isset($_SESSION['alerta_sucesso'])) {
     </div>
 
     <script>
-
         <?php if (!empty($mensagem_alerta)): ?>
             alert("<?php echo $mensagem_alerta; ?>");
         <?php endif; ?>
