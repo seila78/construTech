@@ -1,4 +1,13 @@
-ConstruTech ->
+Desenvolvedores:
+Lucas Vieira Zangrande
+Vitor Oliveira de Sá
+
+ConstruTech Planejamento inicial->
+
+DADOS DE LOGIN
+
+username:admin
+senha:123
 
 cor da fonte -> #073365
 
