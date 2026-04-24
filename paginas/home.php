@@ -27,5 +27,22 @@
             </div>
         </a>
     </main>
+    <a href="../index.php">
+        <button class="button">
+            <svg 
+                class="svg"
+                xmlns="http://www.w3.org/2000/svg" 
+                viewBox="0 0 100 100" 
+                width="100" 
+                height="100">
+                <path 
+                    d="M20 20 L80 80 M80 20 L20 80" 
+                    stroke="#ffffff" 
+                    stroke-width="15" 
+                    stroke-linecap="round" 
+                />
+            </svg>
+        </button>
+    </a>
 </body>
 </html>
