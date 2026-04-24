@@ -12,6 +12,7 @@ body {
     background-position: center;
     background-attachment: fixed;
     background-blend-mode: multiply; 
+
 }
 
 header {
@@ -32,131 +33,169 @@ nav {
 }
 
 .container {
+    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 50px 20px;
+    padding: 40px 20px;
 }
 
 .card-produto {
     display: flex;
     background-color: #fc6b1b;
-    width: 1300px;
-    height: 700px;
-    border-radius: 20px;
+    width: 100%;
+    max-width: 1100px;
+    min-height: 650px;
+    border-radius: var(--border-radius);
     overflow: hidden;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
-    align-items: center;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
 }
 
-.imagem-box {
+.imagem-section {
     flex: 1;
+    background-color: #f87c39;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 20px;
-    text-align: center;
-}
-
-.imagem-box img {
-    max-width: 80%;
-    height: auto;
-    transition: transform 0.3s;
-    margin-bottom: 20px;
-    margin-top: 20px;
-}
-
-.imagem-box input[type="file"] {
-    font-size: 0.9rem;
-    cursor: pointer;
-    margin-bottom: 80px;
-}
-
-.card-content {
-    flex: 1;
     padding: 40px;
 }
 
-.card-content h3 {
-    font-size: 1.8rem;
-    color: #191970;
-    margin-bottom: 15px;
+.imagem-container {
+    width: 100%;
+    max-width: 350px;
+    height: 350px;
+    background: #f87c39;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.card-content input[type="text"], 
-.card-content input[type="number"],
-.card-content select {
-    width: 80%;
-    padding: 12px 15px;
-    border-radius: 25px;
-    border: 2px solid transparent;
-    font-size: 16px;
-    margin-bottom: 15px;
-    margin-left: 10%;
+.imagem-container img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transition: var(--transition);
+}
+
+.status-texto {
+    margin-top: 20px;
+    color: #004aad;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.form-section {
+    flex: 1.2;
+    padding: 50px;
+    background-color: #fc6b1b;
+}
+
+.form-header {
+    margin-bottom: 30px;
+}
+
+.form-header h2 {
+    color: #004aad;
+    font-size: 2rem;
+    margin-bottom: 8px;
+}
+
+.form-header p {
+    color: #ffffff;
+}
+
+.form-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.input-group label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #191970;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.input-group label i {
+    color: #ffffff;
+}
+
+.input-group input, 
+.input-group select {
+    padding: 12px 16px;
+    border: 2px solid #000000;
+    border-radius: 8px;
+    font-size: 1rem;
     color: #003985;
     background-color: #ffffff;
     transition: all 0.3s ease;
     outline: none;
 }
 
-.card-content input:focus,
-.card-content select:focus {
+.input-group input:focus, 
+.input-group select:focus {
     border: 2px solid #004aad;
     box-shadow: 0 0 10px rgba(0, 74, 173, 0.5);
     transform: scale(1.01);
 }
 
-.card-content ::placeholder {
-    color: #003985;
+.row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
 }
 
-.card-content .adicionar {
-    width: 40%;
-    padding: 12px;
-    border-radius: 25px;
-    background-color: #004aad;
-    color: #ffffff;
-    font-size: 16px;
-    font-weight: bold;
-    text-transform: uppercase;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-    align-self: center;
-    margin-top: 10px;
+.form-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
 }
 
-.form-adicionar .adicionar:hover {
-    background-color: #003985;
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-}
-
-.form-adicionar .botao:active {
-    transform: translateY(1px);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-}
-
-.botao {
-    background: #004aad;
+.btn-salvar {
+    flex: 2;
+    background-color:#004aad;
     color: white;
     border: none;
-    padding: 15px 90px;
-    border-radius: 20px;
-    cursor: pointer;
-    font-size: 1.1rem;
+    padding: 15px;
+    border-radius: 8px;
     font-weight: bold;
-    transition: 0.3s;
-    width: 20%;
-    margin-left: 230px;
-    margin-top: 20px;
-    margin-bottom: -25px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: var(--transition);
 }
 
-.botao:hover {
-    background: #191970;
-    transform: scale(1.05);
-    transform: brightness(1.2);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+.btn-salvar:hover {
+    background-color: #191970;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 74, 173, 0.3);
+}
+
+.btn-cancelar {
+    flex: 1;
+    background-color: #fff5f5;
+    color: #666;
+    border: none;
+    padding: 15px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn-cancelar:hover {
+    background-color: #ddd;
 }
