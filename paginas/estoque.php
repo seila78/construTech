@@ -37,26 +37,22 @@
             </thead>
             <tbody>
 <?php
-require_once __DIR__ . '/../php/data.php';
+require_once __DIR__ . '/../php/data_estoque.php';
 
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
     
-    // Verifica se a ação é de exclusão
     if (isset($_POST['acao']) && $_POST['acao'] === 'excluir') {
-        $idExcluir = (int)$_POST['id']; // Pega o ID enviado pelo formulário
-        
-        // Percorre a sessão para encontrar o produto com esse ID
+        $idExcluir = (int)$_POST['id']; 
+
         foreach ($_SESSION['produtos'] as $indice => $produto) {
             if ($produto['id'] === $idExcluir) {
-                unset($_SESSION['produtos'][$indice]); // Remove o item do array
-                $_SESSION['produtos'] = array_values($_SESSION['produtos']); // Reorganiza os índices do array
-                break; // Para o loop depois que encontrar e excluir
+                unset($_SESSION['produtos'][$indice]); 
+                $_SESSION['produtos'] = array_values($_SESSION['produtos']);
+                break;
             }
         }
     } 
-    // Se não for excluir, é porque está adicionando (seu código original)
     else {
-        // Evita erro caso o array esteja vazio ao tentar achar o max(id)
         $novoId = !empty($_SESSION['produtos']) ? max(array_column($_SESSION['produtos'],'id')) + 1 : 1;
         
         $_SESSION['produtos'][] = [
@@ -101,7 +97,7 @@ foreach($produtosExibidos as $produto){
             <td class="preco">R$'.number_format($produto['preco'], 2, ',', '.').'</td>
             <td class="preco">'.$produto['quantidade'].'</td>
             <td class="preco">R$'.number_format((float)$produto['quantidade'] * (float)$produto['preco'], 2, ',', '.').'</td>
-            <td class="acao"><a href="./edicao.php"><button class="btn-editar">
+            <td class="acao"><a href="./edicao.php?id='.$produto['id'].'"><button class="btn-editar">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z" />
                     <line x1="3.5" y1="16.5" x2="7.5" y2="20.5" />

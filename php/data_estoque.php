@@ -147,11 +147,6 @@ $produtos = [
 ],
 ];
 
-//adicionar produtos
-
-//remover produtos
-/*unset()*/
-
 //cria a sessão de produtos caso ela ainda não exista
 if (!isset($_SESSION['produtos'])) {
     $_SESSION['produtos'] = $produtos;

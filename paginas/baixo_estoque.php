@@ -10,7 +10,7 @@
 <body>
     <?php
         include '../partials/header2.php';
-        require_once __DIR__ . '/../php/data.php'; 
+        require_once __DIR__ . '/../php/data_estoque.php'; 
     ?>
     <h1 class="titulo">Produtos em Baixo Estoque</h1>
     <main class="container">
