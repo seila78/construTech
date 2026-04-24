@@ -11,6 +11,35 @@
     <?php
         require '../partials/header2.php';
         require_once '../php/datafinanceiro.php'; 
+        require_once '../php/data_pedente.php';
+        require_once '../php/data_estoque.php';
+        
+        $qtdPedidosPendentes = 0;
+        
+        $listaPedidos = isset($_SESSION['pedidos']) ? $_SESSION['pedidos'] : (isset($pedidos) ? $pedidos : []);
+
+        if (is_array($listaPedidos)) {
+            foreach ($listaPedidos as $pedido) {
+                if (isset($pedido['status'])) {
+                    if (strtolower($pedido['status']) === 'pendente') {
+                        $qtdPedidosPendentes++;
+                    }
+                } else {
+                    $qtdPedidosPendentes++;
+                }
+            }
+        }
+
+        $qtdBaixoEstoque = 0;
+        $limite_estoque = 50;
+        
+        if (isset($_SESSION['produtos']) && is_array($_SESSION['produtos'])) {
+            foreach ($_SESSION['produtos'] as $produto) {
+                if (isset($produto['quantidade']) && $produto['quantidade'] <= $limite_estoque) {
+                    $qtdBaixoEstoque++;
+                }
+            }
+        }
     ?>
     <main class="container">
         <div class="container-tabela">
@@ -63,22 +92,24 @@
         <div class="lado-direito">
             <div class="card-lucro">
                 <?php 
-                    $lucroFormatado = 'R$ ' . number_format($subtotal, 2, ',', '.');
+                    $lucroFormatado = 'R$ ' . number_format((isset($subtotal) ? $subtotal : 0), 2, ',', '.');
                 ?>
                 <h2><span><?php echo $lucroFormatado; ?></span><br>Saldo</h2>
             </div>
+            
             <div class="card">
-                <h2><span>0</span><br>pedidos pendentes</h2>
+                <h2><span><?php echo $qtdPedidosPendentes; ?></span><br>pedidos pendentes</h2>
                 <a href="./pendente.php">
                     <button class="botao">Ver pedidos</button>
                 </a>
             </div>
             <div class="card">
-                <h2><span>0</span><br>Baixo estoque</h2>
+                <h2><span><?php echo $qtdBaixoEstoque; ?></span><br>Baixo estoque</h2>
                 <a href="./baixo_estoque.php">
                     <button class="botao">Solicitar fornecedor</button>
                 </a>
             </div>
+            
         </div>
     </main>
 </body>

@@ -1,3 +1,29 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['pedidos_aprovados'])) {
+    $_SESSION['pedidos_aprovados'] = [];
+}
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['aprovar_id'])) {
+    $id_aprovado = (int)$_POST['aprovar_id'];
+    
+    if (!in_array($id_aprovado, $_SESSION['pedidos_aprovados'])) {
+        $_SESSION['pedidos_aprovados'][] = $id_aprovado;
+        
+        $_SESSION['alerta_sucesso'] = "Pedido #" . str_pad($id_aprovado, 3, '0', STR_PAD_LEFT) . " aprovado com sucesso!";
+    }
+    
+    header("Location: " . $_SERVER['PHP_SELF']);
+    exit;
+}
+
+$mensagem_alerta = "";
+if (isset($_SESSION['alerta_sucesso'])) {
+    $mensagem_alerta = $_SESSION['alerta_sucesso'];
+    unset($_SESSION['alerta_sucesso']); 
+}
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -17,6 +43,11 @@
     
     <main class="container">
         <?php foreach ($pedidos as $pedido): ?>
+            <?php
+                if (in_array($pedido['id'], $_SESSION['pedidos_aprovados'])) {
+                    continue; 
+                }
+            ?>
             <div class="card">
                 <img src="<?php echo $pedido['imagem']; ?>" alt="Imagem do Pedido">
                 <h2>Pedido #<?php echo str_pad($pedido['id'], 3, '0', STR_PAD_LEFT); ?></h2>
@@ -30,9 +61,13 @@
                         data-valor="<?php echo number_format($pedido['Valor Total'], 2, ',', '.'); ?>">
                         Visualizar
                     </button>
-                    <button class="btn-card" onclick="aprovarPedido(this, <?php echo $pedido['id']; ?>)">
-                        Aprovar
-                    </button>
+
+                    <form method="POST" style="display: inline; margin: 0;">
+                        <input type="hidden" name="aprovar_id" value="<?php echo $pedido['id']; ?>">
+                        <button type="submit" class="btn-card">
+                            Aprovar
+                        </button>
+                    </form>
                 </div>
             </div>
         <?php endforeach; ?>
@@ -52,19 +87,10 @@
     </div>
 
     <script>
-        function aprovarPedido(botao, id) {
-            alert('Pedido #' + id + ' aprovado com sucesso!');
-            
-            const card = botao.closest('.card');
-            if (card) {
-                card.style.transition = "opacity 0.3s ease";
-                card.style.opacity = "0";
-                
-                setTimeout(() => {
-                    card.remove();
-                }, 300);
-            }
-        }
+
+        <?php if (!empty($mensagem_alerta)): ?>
+            alert("<?php echo $mensagem_alerta; ?>");
+        <?php endif; ?>
 
         document.addEventListener("DOMContentLoaded", function() {
             const modal = document.getElementById("modal-detalhes");
